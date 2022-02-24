@@ -13,7 +13,8 @@ public class TestTowayLinkList {
         tl.insert("d");
         tl.insert("e");
         tl.insert("f");
-
+        tl.insert("g");
+        tl.insert("h");
         tl.insert(1,"a");
         tl.remove(1);
         System.out.println(tl.indexOf("b"));
