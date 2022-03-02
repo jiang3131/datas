@@ -9,9 +9,9 @@ public class LinkList<T> implements Iterable<T>{
 
 
 
-    private class Node{
-        T item;
-        Node next;
+    public class Node{
+        public T item;
+        public Node next;
         public Node(T item, Node next){
             this.item=item;
             this.next=next;
@@ -33,6 +33,14 @@ public class LinkList<T> implements Iterable<T>{
             n=n.next;
         }
         return n.item;
+    }
+    public Node getNode(int i){
+        Node n=head;
+        for (int j = 1; j <=i ; j++) {
+            n=n.next;
+        }
+        return n;
+
     }
     public void insert(T t){
         Node n=head;
@@ -110,6 +118,37 @@ public class LinkList<T> implements Iterable<T>{
         curr.next=null;
         return curr;
     }
+    public boolean iscircle(Node first){
+        Node fast=first;
+        Node slow=first;
+        while(fast!=null&&fast.next!=null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast.item.equals(slow.item)) {
+                return true;
+            }}
 
+        return false;
+    }
+    public Node getEntrance(Node first){
+        Node fast=first;
+        Node slow=first;
+        Node temp=null;
+        while(fast!=null&&fast.next!=null){
+            fast=fast.next.next;
+            slow=slow.next;
+            if(fast.item.equals(slow.item)){
+                temp=first;
+                continue;
+            }
+            if(temp!=null) {
+                temp = temp.next;
+                if (temp.item.equals(slow.item)) {
+                    break;
+                }
+            }
+        }
+        return temp;
+    }
 
 }
