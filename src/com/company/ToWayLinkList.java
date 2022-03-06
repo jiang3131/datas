@@ -61,7 +61,7 @@ public class ToWayLinkList<T> implements Iterable {
     }
     public void insert(int i ,T t){
         Node preNode=head;
-        for(int index=i;index<=i-1;index++){
+        for(int index=0;index<=i-1;index++){
             preNode=preNode.next;
         }
         Node curr=preNode.next;
